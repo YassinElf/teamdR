@@ -139,20 +139,20 @@ module.exports = function (grunt) {
         },
 
         // --- Compiles Sass to CSS and generates necessary files if requested
-        compass: {
-            dist : {
-                options: {
-                    sassDir             : 'src/', // Where we have to check
-                    cssDir              : '.tmp/', // Where we put the file
-                    importPath          : './demo/bower_components',
-                    httpImagesPath      : '/images',
-                    relativeAssets      : false,
-                    assetCacheBuster    : false,
-                    raw                 : 'Sass::Script::Number.precision = 10\n',
-                    imagesDir           : 'src/public/images/'
-                }
-            }
-        },
+        // compass: {
+        //     dist : {
+        //         options: {
+        //             sassDir             : 'src/', // Where we have to check
+        //             cssDir              : '.tmp/', // Where we put the file
+        //             importPath          : './demo/bower_components',
+        //             httpImagesPath      : '/images',
+        //             relativeAssets      : false,
+        //             assetCacheBuster    : false,
+        //             raw                 : 'Sass::Script::Number.precision = 10\n',
+        //             imagesDir           : 'src/public/images/'
+        //         }
+        //     }
+        // },
 
         // --- Copies remaining files to places other tasks can use
         copy: {
@@ -219,7 +219,7 @@ module.exports = function (grunt) {
 
     // --- Task About CSS
     grunt.registerTask('css', "Build css stuff", ['compass:dist','copy:styles','concat:css','cssmin', 'copy:font']);
-    grunt.registerTask('css_light', "Build css stuff", ['compass:dist','copy:styles','copy:font']);
+    grunt.registerTask('css_light', "Build css stuff", ['copy:styles','copy:font']);
     // --- Make Clean Build
     grunt.registerTask('dist', 'Perform a clean build', ['clean', 'buildComplete']);
 
