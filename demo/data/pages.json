@@ -9,5 +9,11 @@
   "description" : "Example how to use a form",
   "icon"        : "bug_report",
   "state"       : "myForm"
-}
+},
+  {
+    "name"        : "Form with classique",
+    "description" : "Example how to use a form",
+    "icon"        : "bookmark_border",
+    "state"       : "myForm2"
+  }
 ]

@@ -28,6 +28,12 @@ angular.module('demoApp')
             templateUrl : "pages/demoform/demoFormView.html"
         })
 
+        .state('myForm2', {
+            url : '/my-form-classique',
+            controller : 'demoUserCtrl',
+            templateUrl : "pages/demoUser/demoUserView.html"
+        })
+
 
     ;
 
