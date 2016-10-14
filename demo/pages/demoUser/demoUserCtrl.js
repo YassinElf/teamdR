@@ -23,8 +23,8 @@ angular.module('demoApp')
              */
             case       : 'Case user',
             user    : {
-                firstname : 'toto',
-                lastname : 'plop',
+                name : 'toto',
+                photo : 'http://0.0.0.0:8020/images/patients/F10.png',
                 titi : "pocvc"
             },
             callback : {
