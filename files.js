@@ -8,6 +8,8 @@ modelFiles = {
         'src/modules/forms/module.js',
         'src/modules/forms/{,**/}*.js',
 
+        'src/modules/user/module.js',
+        'src/modules/user/{,**/}*.js',
 
         'src/module.js',
         'src/services/{,**/}*.js'

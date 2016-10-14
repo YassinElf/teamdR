@@ -11,8 +11,8 @@
   "state"       : "myForm"
 },
   {
-    "name"        : "Form with classique",
-    "description" : "Example how to use a form",
+    "name"        : "User  with classique",
+    "description" : "Example how to use a directive",
     "icon"        : "bookmark_border",
     "state"       : "myForm2"
   }
