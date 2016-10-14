@@ -24,11 +24,11 @@ angular.module('demoApp')
             case       : 'Case user',
             user    : {
                 name : 'toto',
-                photo : 'http://0.0.0.0:8020/images/patients/F10.png',
-                titi : "pocvc"
+                photo : 'http://0.0.0.0:9000/images/patient/photos/F60.png',
+                birthDate : "2000-01-01"
             },
             callback : {
-                onValid : function(user){
+                valid : function(user){
                     displayCode('onValid', user)
                 }
             }
@@ -45,7 +45,7 @@ angular.module('demoApp')
         };
 
         // --- Init
-        $scope.chooseParams(0);
+        $scope.chooseParams(1);
 
         // --- Update result viewer
         var displayCode = function(from,code,isError){
