@@ -26,7 +26,7 @@ angular.module('demoApp')
                 name : 'toto',
                 photo : 'http://0.0.0.0:9000/images/patient/photos/F60.png',
                 birthDate : "2000-01-01",
-                skills : "AngularJS"
+                skill : "AngularJS"
             },
             callback : {
                 valid : function(user){

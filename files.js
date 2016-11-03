@@ -4,7 +4,7 @@ modelFiles = {
 
         'src/modules/json-editor/module.js',
         'src/modules/json-editor/{,**/}*.js',
-        
+
         'src/modules/forms/module.js',
         'src/modules/forms/{,**/}*.js',
 
@@ -12,7 +12,10 @@ modelFiles = {
         'src/modules/user/{,**/}*.js',
 
         'src/module.js',
-        'src/services/{,**/}*.js'
+        'src/services/{,**/}*.js',
+
+        'src/modules/comp/module.js',
+        'src/modules/comp/{,**/}*.js'
 
 
 
