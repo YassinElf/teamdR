@@ -1,13 +1,14 @@
 'use strict';
 
-angular.module('eklabs.angularStarterPack.user')
-    .directive('myUser',function($log){
+angular.module('eklabs.angularStarterPack.teamdrMain')
+    .directive('teamdrMain',function($log){
         return {
-            templateUrl : 'eklabs.angularStarterPack/modules/user/directives/my-user/view.html',
+            templateUrl : 'eklabs.angularStarterPack/modules/teamdrMain/directives/teamdr-main/view.html',
             scope : {
                 user : '=?',
+                team : '=?',
                 callback : '=?'
-            },link : function(scope){
+            }, link : function(scope){
 
 
                 /**

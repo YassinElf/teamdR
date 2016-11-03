@@ -11,9 +11,9 @@
   "state"       : "myForm"
 },
   {
-    "name"        : "User  with classique",
-    "description" : "Example how to use a directive",
-    "icon"        : "bookmark_border",
-    "state"       : "myForm2"
+    "name"        : "TeamdR",
+    "description" : "Trouvez l'équipe pour mener à bien votre projet !",
+    "icon"        : "people",
+    "state"       : "teamdr"
   }
 ]

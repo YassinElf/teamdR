@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('demoApp')
-    .controller('demoUserCtrl', function($scope,$mdDialog){
+    .controller('teamdrMainCtrl', function($scope,$mdDialog){
 
 
         // ----------------------------------------------------------------------------------------------------
@@ -14,19 +14,60 @@ angular.module('demoApp')
              */
             case        : 'Default Case',
             user        : undefined,
+            team        : undefined,
             callback    : undefined
         },{
             /**
-             * Case user
+             * Case user without team
              */
-            case       : 'Case user',
+            case    : 'Case user',
             user    : {
-                name : 'toto',
-                photo : 'http://0.0.0.0:9000/images/patient/photos/F60.png',
-                birthDate : "2000-01-01"
+                inTeam: true,
+                name : 'Yassin',
+                lastname : 'El Fahim',
+                birthDate : "1995-12-04"
             },
+            team    : undefined,
             callback : {
-                valid : function(user){
+                valid: function (user) {
+                    displayCode('onValid', user)
+                }
+            }
+        },{
+            /**
+             * Case user with team
+             */
+            case: 'Case user with team',
+            user: {
+                inTeam: true,
+                name: 'Yassin',
+                lastname: 'El Fahim',
+                birthDate: "1995-12-04"
+            },
+            team: {
+                size: 3,
+                projName: "TeamdR",
+                desc: "Besoin d'une équipe pour mener à bien un projet ? Envie de participer à un projet ? TeamdR est fait pour vous",
+                users: [{
+                    inTeam: true,
+                    name: 'Yassin',
+                    lastname: 'El Fahim',
+                    birthDate: "1995-12-04"
+                }, {
+                    inTeam: true,
+                    name: 'Atilla',
+                    lastname: 'Topo',
+                    birthDate: "1995-12-04"
+                }, {
+                    inTeam: true,
+                    name: 'Leslie',
+                    lastname: 'Zanon',
+                    birthDate: "1995-12-04"
+                }
+                ]
+            },
+            callback: {
+                valid: function (user) {
                     displayCode('onValid', user)
                 }
             }
@@ -34,7 +75,8 @@ angular.module('demoApp')
 
         $scope.chooseParams = function(index){
             // --- Define current status
-            $scope.myUser    = $scope.params[index].user;
+            $scope.currentUser    = $scope.params[index].user;
+            $scope.currentUserTeam    = $scope.params[index].team;
             $scope.myCallback = $scope.params[index].callback;
 
             $scope.index          = index;
@@ -43,7 +85,7 @@ angular.module('demoApp')
         };
 
         // --- Init
-        $scope.chooseParams(1);
+        $scope.chooseParams(0);
 
         // --- Update result viewer
         var displayCode = function(from,code,isError){
@@ -71,16 +113,16 @@ angular.module('demoApp')
          * @type {{title: string, icon: string, haveCodeSource: boolean}}
          */
         $scope.page         = {
-            title : 'directive my user',
+            title : 'Directive TeamdR',
             haveCodeSource : true,
             code : [{
-                link : 'pages/demoUser/code/directive.html',
+                link : 'pages/teamdrMain/code/directive.html',
                 language : 'html',
-                title : 'Code HTML de la directive demo-user'
+                title : 'Code HTML de la directive TeamdRMain'
             },{
-                link : 'pages/demoUser/code/params.json',
+                link : 'pages/teamdrMain/code/params.json',
                 language : 'json',
-                title : 'Params available for the directive demo-user'
+                title : 'Params available for the directive TeamdRMain'
             }]
         };
 
