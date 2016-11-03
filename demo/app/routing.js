@@ -21,17 +21,11 @@ angular.module('demoApp')
             controller : 'demoEditorCtrl',
             templateUrl : "pages/demoEditor/demoEditorView.html"
         })
-
-        .state('myForm', {
-            url : '/my-form',
-            controller : 'demoFormCtrl',
-            templateUrl : "pages/demoform/demoFormView.html"
-        })
-
-        .state('myForm2', {
-            url : '/my-form-classique',
-            controller : 'demoUserCtrl',
-            templateUrl : "pages/demoUser/demoUserView.html"
+        
+        .state('compEditor', {
+            url : '/comp-editor',
+            controller : 'compEditorCtrl',
+            templateUrl : "pages/compEditor/compEditorView.html"
         })
 
 
@@ -39,6 +33,6 @@ angular.module('demoApp')
 
 
 
-    
+
     $urlRouterProvider.otherwise('/');
 });

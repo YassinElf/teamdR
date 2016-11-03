@@ -1,19 +1,7 @@
 [{
-  "name"        : "JSON Editor",
-  "description" : "Example of demo interface with a JSON Editor UI-ACE",
+  "name"        : "Skills EDITOR",
+  "description" : "Composant permettant d'ajouter des compétences",
   "icon"        : "code",
-  "state"       : "jsonEditor"
-},
-{
-  "name"        : "Form Example",
-  "description" : "Example how to use a form",
-  "icon"        : "bug_report",
-  "state"       : "myForm"
-},
-  {
-    "name"        : "User  with classique",
-    "description" : "Example how to use a directive",
-    "icon"        : "bookmark_border",
-    "state"       : "myForm2"
-  }
+  "state"       : "compEditor"
+}
 ]
