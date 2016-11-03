@@ -1,0 +1,22 @@
+{
+
+  "user":{
+    "inTeam": "Boolean",
+    "name": "String",
+    "lastname": "String",
+    "birthDate": "Date"
+  },
+
+  "teams": [{
+    "size": "Number",
+    "projName": "String",
+    "desc": "String",
+    "users": "Array of users"
+  }],
+
+  "callback" : {
+    "valid" : "function(teams){...}",
+    "error" : "function(error){...}"
+  }
+
+}
