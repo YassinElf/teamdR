@@ -1,3 +1,7 @@
+<div ng-if="!user">
+    User manquant .... lololol
+</div>
+
 <md-card layout="column" ng-if="user && !isModeEdition">
 
     <div layout="row">
@@ -8,7 +12,6 @@
         <div flex layout="column">
             <span>{{user.name}}</span>
             <span>{{user.birthDate | momentFormat: 'DD MMM YYYY'}}</span>
-            <span>{{user.skill}}</span>
         </div>
     </div>
 

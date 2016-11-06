@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 angular.module('demoApp')
     .controller('compEditorCtrl', function($scope,$mdDialog){
 
@@ -25,8 +23,7 @@ angular.module('demoApp')
             user    : {
                 name : 'toto',
                 photo : 'http://0.0.0.0:9000/images/patient/photos/F60.png',
-                birthDate : "2000-01-01",
-                skill : "AngularJS"
+                birthDate : "2000-01-01"
             },
             callback : {
                 valid : function(user){
@@ -74,12 +71,12 @@ angular.module('demoApp')
          * @type {{title: string, icon: string, haveCodeSource: boolean}}
          */
         $scope.page         = {
-            title : 'Skills editor',
+            title : 'directive my-comp',
             haveCodeSource : true,
             code : [{
                 link : 'pages/compEditor/code/directive.html',
                 language : 'html',
-                title : 'Code HTML de la directive demo-user'
+                title : 'Code HTML de la directive my-comp'
             }]
         };
 

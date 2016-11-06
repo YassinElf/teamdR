@@ -21,11 +21,17 @@ angular.module('demoApp')
             controller : 'demoEditorCtrl',
             templateUrl : "pages/demoEditor/demoEditorView.html"
         })
-        
+
         .state('compEditor', {
             url : '/comp-editor',
             controller : 'compEditorCtrl',
             templateUrl : "pages/compEditor/compEditorView.html"
+        })
+
+        .state('user', {
+            url : '/user-editor',
+            controller : 'demoUserCtrl',
+            templateUrl : "pages/demoUser/demoUserView.html"
         })
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eklabs.angularStarterPack.comp')
-    .directive('myUser',function($log){
+    .directive('myComp',function($log){
         return {
             templateUrl : 'eklabs.angularStarterPack/modules/comp/directives/my-comp/view.html',
             scope : {
@@ -39,7 +39,7 @@ angular.module('eklabs.angularStarterPack.comp')
                 scope.isModeEdition = false;
                 scope.goToEdition = function(){
                     scope.isModeEdition = !scope.isModeEdition;
-                    scope.userEdit = scope.user;
+                    scope.userEdit = (JSON.parse(JSON.stringify(scope.user)));
                 };
 
                 /**

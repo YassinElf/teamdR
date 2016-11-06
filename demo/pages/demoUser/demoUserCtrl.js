@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 angular.module('demoApp')
     .controller('demoUserCtrl', function($scope,$mdDialog){
 
@@ -23,9 +21,10 @@ angular.module('demoApp')
              */
             case       : 'Case user',
             user    : {
-                name : 'toto',
-                photo : 'http://0.0.0.0:9000/images/patient/photos/F60.png',
-                birthDate : "2000-01-01"
+                name : 'Utilisateur en base',
+                photo : 'https://ukla.org/images/icons/user-icon.svg',
+                birthDate : "1994-12-11",
+                skills : ["AngularJS","PHP","HTML","CSS"]
             },
             callback : {
                 valid : function(user){
@@ -94,5 +93,6 @@ angular.module('demoApp')
         $scope.fullScreen = function(){
             $scope.hideParams = !$scope.hideParams;
         };
+
 
     });

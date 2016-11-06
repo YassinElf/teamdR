@@ -39,7 +39,7 @@ angular.module('eklabs.angularStarterPack.user')
                 scope.isModeEdition = false;
                 scope.goToEdition = function(){
                     scope.isModeEdition = !scope.isModeEdition;
-                    scope.userEdit = scope.user;
+                    scope.userEdit = (JSON.parse(JSON.stringify(scope.user)));
                 };
 
                 /**
@@ -51,7 +51,14 @@ angular.module('eklabs.angularStarterPack.user')
                     scope.callback.valid(user);
                 }
 
+                scope.transformChip = function(chip) {
+                   if(angular.isObject(chip)){
+                       return chip;
+                   }
 
+                   return { name: chip, type: 'Inconnu' }
+               };
+               
             }
         }
     })

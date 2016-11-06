@@ -3,5 +3,10 @@
   "description" : "Composant permettant d'ajouter des compétences",
   "icon"        : "code",
   "state"       : "compEditor"
+},{
+  "name"        : "User",
+  "description" : "Composant permettant de mdifier les user",
+  "icon"        : "code",
+  "state"       : "user"
 }
 ]
