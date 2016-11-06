@@ -9,13 +9,15 @@
     "rating": "Number"
   },
 
-  "searchvalues": {
-    "field": "String",
-    "skills": "Array of skills"
+  "team" : {
+    "size": "Number",
+    "projName": "String",
+    "desc": "String",
+    "users": "Array of users",
+    "skillsNeed" : "Array of skills"
   },
-
   "callback" : {
-    "valid" : "function(searchValues){...}",
+    "valid" : "function(){...}",
     "error" : "function(error){...}"
   }
 

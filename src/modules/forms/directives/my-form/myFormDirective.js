@@ -13,6 +13,7 @@ angular.module('eklabs.angularStarterPack.forms')
                  * 
                  */
                 scope.$watch('user', function(myUser){
+                    console.log(myUser);
                     scope.myUser = myUser;
                 });
 

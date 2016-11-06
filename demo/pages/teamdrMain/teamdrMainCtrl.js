@@ -42,9 +42,11 @@ angular.module('demoApp')
                 inTeam: true,
                 name: 'Yassin',
                 lastname: 'El Fahim',
-                birthDate: "1995-12-04"
+                birthDate: "1995-12-04",
+                skills: ['Leader', 'Javascript'],
+                rating: 5
             },
-            team: {
+            teams: [{
                 size: 3,
                 projName: "TeamdR",
                 desc: "Besoin d'une équipe pour mener à bien un projet ? Envie de participer à un projet ? TeamdR est fait pour vous",
@@ -52,20 +54,47 @@ angular.module('demoApp')
                     inTeam: true,
                     name: 'Yassin',
                     lastname: 'El Fahim',
-                    birthDate: "1995-12-04"
+                    birthDate: "1995-12-04",
+                    skills: ['Leader', 'Javascript']
                 }, {
                     inTeam: true,
                     name: 'Atilla',
                     lastname: 'Topo',
-                    birthDate: "1995-12-04"
+                    birthDate: "1995-12-04",
+                    skills: ['Leader', 'Javascript']
                 }, {
                     inTeam: true,
                     name: 'Leslie',
                     lastname: 'Zanon',
-                    birthDate: "1995-12-04"
+                    birthDate: "1995-12-04",
+                    skills: ['Leader', 'Javascript']
                 }
                 ]
-            },
+            }, {
+                size: 3,
+                projName: "TeamdR",
+                desc: "Besoin d'une équipe pour mener à bien un projet ? Envie de participer à un projet ? TeamdR est fait pour vous",
+                users: [{
+                    inTeam: true,
+                    name: 'Yassin',
+                    lastname: 'El Fahim',
+                    birthDate: "1995-12-04",
+                    skills: ['Leader', 'Javascript']
+                }, {
+                    inTeam: true,
+                    name: 'Atilla',
+                    lastname: 'Topo',
+                    birthDate: "1995-12-04",
+                    skills: ['Leader', 'Javascript']
+                }, {
+                    inTeam: true,
+                    name: 'Leslie',
+                    lastname: 'Zanon',
+                    birthDate: "1995-12-04",
+                    skills: ['Leader', 'Javascript']
+                }
+                ]
+            }],
             callback: {
                 valid: function (user) {
                     displayCode('onValid', user)

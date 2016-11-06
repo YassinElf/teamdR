@@ -1,21 +1,24 @@
 {
 
   "user":{
-      "inTeam": "Boolean",
-      "name": "String",
-      "lastname": "String",
-      "birthDate": "Date"
+    "inTeam": "Boolean",
+    "name": "String",
+    "lastname": "String",
+    "birthDate": "Date",
+    "skills": "Array of skills",
+    "rating": "Number"
   },
 
-  "team":{
-      "size": "Number",
-      "projName": "String",
-      "desc": "String",
-      "users": "Array of users"
-  },
+  "teams": [{
+    "size": "Number",
+    "projName": "String",
+    "desc": "String",
+    "users": "Array of users",
+    "skillsNeed" : "Array of skills"
+  }],
 
   "callback" : {
-    "valid" : "function(user){...}",
+    "valid" : "function(teams){...}",
     "error" : "function(error){...}"
   }
 

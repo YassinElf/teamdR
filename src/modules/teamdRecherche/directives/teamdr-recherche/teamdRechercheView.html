@@ -1,0 +1,49 @@
+<form name="teamdRecherche" ng-submit="actions.onValid(searchValues)">
+    <div display="row">
+        <h2 display="column" flex="25" class="md-title"> Domaine</h2>
+        <div display="column"flex="50">
+            <md-input-container>
+                <label>Domaine</label>
+                <md-select
+                        ng-model="searchValues.field"
+                        required
+                        ng-change="loadSkills()">
+                    <md-option style="display: none" ng-value="">Invisible debug</md-option>
+                    <md-option ng-value="field" ng-repeat="field in fields"> {{ field.name }}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <h2 display="column"flex="25" class="md-title"> Compétences</h2>
+        <div display="column"flex="50">
+            <md-chips
+                ng-model="searchValues.skills"
+                md-transform-chip="transformChip($chip)"
+                md-require-match="false"
+                readonly="!searchValues.field.name">
+
+                <md-autocomplete
+                    md-selected-item="selectedComp"
+                    md-search-text="searchComp"
+                    md-items="item in searchFor(searchComp)"
+                    md-item-text="item.name"
+                    md-select-on-match="true"
+                    md-match-case-insensitive="true"
+                    placeholder="Entrez une compétence"
+                    secondary-placeholder="Entrez d'autres compétences">
+                    <span md-highlight-text="searchComp">
+                        {{item.name}}
+                    </span>
+                </md-autocomplete>
+
+            <md-chip-template>
+                <span>{{$chip.name}}</span>
+            </md-chip-template>
+            </md-chips>
+        </div>
+
+        <md-button class="md-raised md-primary teamdrecherche-button" type="submit">Recherche</md-button>
+    </div>
+
+
+</form>

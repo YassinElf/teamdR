@@ -10,10 +10,22 @@
   "icon"        : "bug_report",
   "state"       : "myForm"
 },
-  {
-    "name"        : "TeamdR",
-    "description" : "Trouvez l'équipe pour mener à bien votre projet !",
-    "icon"        : "people",
-    "state"       : "teamdr"
-  }
+{
+  "name"        : "TeamdR",
+  "description" : "Trouvez l'équipe pour mener à bien votre projet !",
+  "icon"        : "people",
+  "state"       : "teamdr"
+},
+{
+  "name"        : "TeamdR Recherche ",
+  "description" : "Module de recherche",
+  "icon"        : "people",
+  "state"       : "teamdRecherche"
+},
+{
+  "name"        : "TeamdR Résultats ",
+  "description" : "Module d'affichage des résultats",
+  "icon"        : "people",
+  "state"       : "teamdResultat"
+}
 ]

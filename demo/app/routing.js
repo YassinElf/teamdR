@@ -34,6 +34,18 @@ angular.module('demoApp')
             templateUrl : "pages/teamdrMain/teamdrMainView.html"
         })
 
+        .state('teamdRecherche', {
+            url : '/teamdr/recherche',
+            controller : 'teamdRechercheCtrl',
+            templateUrl : "pages/teamdRecherche/teamdRechercheView.html"
+        })
+
+        .state('teamdResultat', {
+            url : '/teamdr/resultats',
+            controller : 'teamdResultatCtrl',
+            templateUrl : "pages/teamdResultat/teamdResultatView.html"
+        })
+
 
     ;
 

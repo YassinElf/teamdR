@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('demoApp')
-    .controller('teamdrRechercheCtrl', function($scope,$mdDialog){
+    .controller('teamdRechercheCtrl', function($scope,$mdDialog){
 
 
         // ----------------------------------------------------------------------------------------------------
@@ -14,61 +14,28 @@ angular.module('demoApp')
              */
             case         : 'Default Case',
             user         : undefined,
-            teams        : undefined,
+            searchValues : { field: '', skills: [] },
             callback     : undefined
         },{
             /**
-             * Case user without team
+             * Case field informatique
              */
-            case    : 'Case user',
+            case    : 'Case field informatique',
             user    : {
                 inTeam: true,
                 name : 'Yassin',
                 lastname : 'El Fahim',
-                birthDate : "1995-12-04"
+                birthDate : "1995-12-04",
+                skills: ['Developpeur', 'Manager'],
+                rating: 5
             },
-            team    : undefined,
+            searchValues : {
+                field : { name: "Informatique"},
+                skills: [{ name: 'Developpeur', type: 'Informatique'}]
+            },
             callback : {
-                valid: function (user) {
-                    displayCode('onValid', user)
-                }
-            }
-        },{
-            /**
-             * Case user with team
-             */
-            case: 'Case user with team',
-            user: {
-                inTeam: true,
-                name: 'Yassin',
-                lastname: 'El Fahim',
-                birthDate: "1995-12-04"
-            },
-            team: {
-                size: 3,
-                projName: "TeamdR",
-                desc: "Besoin d'une équipe pour mener à bien un projet ? Envie de participer à un projet ? TeamdR est fait pour vous",
-                users: [{
-                    inTeam: true,
-                    name: 'Yassin',
-                    lastname: 'El Fahim',
-                    birthDate: "1995-12-04"
-                }, {
-                    inTeam: true,
-                    name: 'Atilla',
-                    lastname: 'Topo',
-                    birthDate: "1995-12-04"
-                }, {
-                    inTeam: true,
-                    name: 'Leslie',
-                    lastname: 'Zanon',
-                    birthDate: "1995-12-04"
-                }
-                ]
-            },
-            callback: {
-                valid: function (user) {
-                    displayCode('onValid', user)
+                valid: function (searchValues) {
+
                 }
             }
         }];
@@ -76,7 +43,7 @@ angular.module('demoApp')
         $scope.chooseParams = function(index){
             // --- Define current status
             $scope.currentUser    = $scope.params[index].user;
-            $scope.currentUserTeam    = $scope.params[index].team;
+            $scope.searchValues    = $scope.params[index].searchValues;
             $scope.myCallback = $scope.params[index].callback;
 
             $scope.index          = index;
@@ -116,13 +83,13 @@ angular.module('demoApp')
             title : 'Directive TeamdR',
             haveCodeSource : true,
             code : [{
-                link : 'pages/teamdrMain/code/directive.html',
+                link : 'pages/teamdRecherche/code/directive.html',
                 language : 'html',
-                title : 'Code HTML de la directive TeamdRMain'
+                title : 'Code HTML de la directive TeamdR Recherche'
             },{
-                link : 'pages/teamdrMain/code/params.json',
+                link : 'pages/teamdRecherche/code/params.json',
                 language : 'json',
-                title : 'Params available for the directive TeamdRMain'
+                title : 'Params available for the directive TeamdR Search'
             }]
         };
 
