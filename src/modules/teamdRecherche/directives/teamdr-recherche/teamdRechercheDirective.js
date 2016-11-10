@@ -29,10 +29,8 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                  */
                 scope.$watch('callback', function(callback) {
                     if(callback instanceof Object) {
-                        console.log('here');
                         scope.actions = angular.extend({},default_actions,callback);
                     } else {
-                        console.log('there');
                         scope.actions = default_actions;
                     }
                 });
@@ -73,16 +71,15 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                     var results = scope.skills.filter(function(skill){
                         return skill.name.toLowerCase().indexOf(searchComp.toLowerCase()) !== -1;
                     });
-                    console.log(results);
                     return results;
                 };
 
                 scope.loadSkills = function (){
-
+                    console.log(scope.searchValues.field.name);
                     var results = allSkills.filter(function(skill){
                         return skill.type === scope.searchValues.field.name;
                     });
-
+                    console.log(results);
                     scope.skills = results;
 
                 };

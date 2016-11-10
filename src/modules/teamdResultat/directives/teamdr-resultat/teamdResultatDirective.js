@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eklabs.angularStarterPack.teamdResultat')
-    .directive('teamdResultat',function($log){
+    .directive('teamdResultat',function($log, $state){
         return {
             templateUrl : 'eklabs.angularStarterPack/modules/teamdResultat/directives/teamdr-resultat/teamdResultatView.html',
             scope : {
@@ -12,9 +12,10 @@ angular.module('eklabs.angularStarterPack.teamdResultat')
             }, link : function(scope) {
 
                 scope.$watch('searchResults', function(searchResults){
-                    console.log(searchResults);
                    scope.searchResults = searchResults;
                 });
+
+
             }
         }
     })

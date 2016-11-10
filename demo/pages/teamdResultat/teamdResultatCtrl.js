@@ -40,24 +40,31 @@ angular.module('demoApp')
                     projName: "TeamdR",
                     desc: "Besoin d'une équipe pour mener à bien un projet ? Envie de participer à un projet ? TeamdR est fait pour vous",
                     icon: "https://freeiconshop.com/files/edd/many-people-solid.png",
+                    teamLeader : {
+                        inTeam: true,
+                        name: 'Donald',
+                        lastname: 'Trump',
+                        birthDate: "1995-12-04",
+                        skills: [{ name: 'Leader', type: 'Generale'}, { name: 'Javascript', type: 'Informatique'}]
+                    },
                     users: [{
                         inTeam: true,
                         name: 'Yassin',
                         lastname: 'El Fahim',
                         birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
+                        skills: [{ name: 'Leader', type: 'Generale'}, { name: 'Javascript', type: 'Informatique'}]
                     }, {
                         inTeam: true,
                         name: 'Atilla',
                         lastname: 'Topo',
                         birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
+                        skills: [{ name: 'Leader', type: 'Generale'}, { name: 'Javascript', type: 'Informatique'}]
                     }, {
                         inTeam: true,
                         name: 'Leslie',
                         lastname: 'Zanon',
                         birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
+                        skills: [{ name: 'Leader', type: 'Generale'}, { name: 'Javascript', type: 'Informatique'}]
                     }
                     ],
                     skillsNeed : [{ name: 'Developpeur', type: 'Informatique' }]
@@ -66,24 +73,31 @@ angular.module('demoApp')
                     projName: "Tesla France",
                     desc: "Le futur, c'est Mars.",
                     icon: "http://cdn.quotesgram.com/small/60/18/2145568946-06-mars-icon.png",
+                    teamLeader : {
+                        inTeam: true,
+                        name: 'Donald',
+                        lastname: 'Trump',
+                        birthDate: "1995-12-04",
+                        skills: [{ name: 'Leader', type: 'Generale'}, { name: 'Javascript', type: 'Informatique'}]
+                    },
                     users: [{
                         inTeam: true,
                         name: 'Yassin',
                         lastname: 'El Fahim',
                         birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
+                        skills: [{ name: 'Leader', type: 'Generale'}, { name: 'Javascript', type: 'Informatique'}]
                     }, {
                         inTeam: true,
                         name: 'Atilla',
                         lastname: 'Topo',
                         birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
+                        skills: [{ name: 'Leader', type: 'Generale'}, { name: 'Javascript', type: 'Informatique'}]
                     }, {
                         inTeam: true,
                         name: 'Leslie',
                         lastname: 'Zanon',
                         birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
+                        skills: [{ name: 'Leader', type: 'Generale'}, { name: 'Javascript', type: 'Informatique'}]
                 }],
                     skillsNeed : [{ name: 'Developpeur', type: 'Informatique' }]
             }]},

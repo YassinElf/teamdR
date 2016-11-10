@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('demoApp')
-    .controller('teamdProfileCtrl', function($scope,$mdDialog){
+    .controller('teamdrTeamProfileCtrl', function($scope,$mdDialog,$stateParams,$state){
 
-
+        console.log($stateParams.team);
         // ----------------------------------------------------------------------------------------------------
         // ---- PARAMS CATALOGUE
         // ----------------------------------------------------------------------------------------------------
@@ -13,9 +13,8 @@ angular.module('demoApp')
              * Default
              */
             case         : 'Default Case',
-            user         : undefined,
-            searchValues : { field: '', skills: [] },
-            searchResults: undefined,
+            user         : $stateParams.user,
+            team         : $stateParams.team,
             callback     : undefined
         },{
             /**
@@ -30,12 +29,7 @@ angular.module('demoApp')
                 skills: ['Developpeur', 'Manager'],
                 rating: 5
             },
-            searchValues : {
-                field : { name: "Informatique"},
-                skills: [{ name: 'Developpeur', type: 'Informatique'}]
-            },
-            searchResults : {
-                teams: [{
+            team: {
                     size: 3,
                     projName: "TeamdR",
                     desc: "Besoin d'une équipe pour mener à bien un projet ? Envie de participer à un projet ? TeamdR est fait pour vous",
@@ -45,46 +39,21 @@ angular.module('demoApp')
                         name: 'Yassin',
                         lastname: 'El Fahim',
                         birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
+                        skills: [{ name: 'Leader', type: 'Genéral'}, { name: 'Javascript', type: 'Informatique'}]
                     }, {
                         inTeam: true,
                         name: 'Atilla',
                         lastname: 'Topo',
                         birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
+                        skills: [{ name: 'Leader', type: 'Genéral'}, { name: 'Javascript', type: 'Informatique'}]
                     }, {
                         inTeam: true,
                         name: 'Leslie',
                         lastname: 'Zanon',
                         birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
-                    }
-                    ]
-                }, {
-                    size: 3,
-                    projName: "Tesla France",
-                    desc: "Le futur, c'est Mars.",
-                    icon: "http://cdn.quotesgram.com/small/60/18/2145568946-06-mars-icon.png",
-                    users: [{
-                        inTeam: true,
-                        name: 'Yassin',
-                        lastname: 'El Fahim',
-                        birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
-                    }, {
-                        inTeam: true,
-                        name: 'Atilla',
-                        lastname: 'Topo',
-                        birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
-                    }, {
-                        inTeam: true,
-                        name: 'Leslie',
-                        lastname: 'Zanon',
-                        birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
+                        skills: [{ name: 'Leader', type: 'Genéral'}, { name: 'Javascript', type: 'Informatique'}]
                     }]
-                }]},
+            },
             callback : {
                 valid: function (searchValues) {
 
@@ -102,26 +71,13 @@ angular.module('demoApp')
                 birthDate : "1995-12-04",
                 skills: ['Developpeur', 'Manager'],
                 rating: 5
-            },
-            searchValues : {
-                field : { name: "Informatique"},
-                skills: [{ name: 'Developpeur', type: 'Informatique'}]
-            },
-            searchResults : {
-                teams: []
-            },
-            callback : {
-                valid: function (searchValues) {
-
-                }
             }
         }];
 
         $scope.chooseParams = function(index){
             // --- Define current status
             $scope.currentUser    = $scope.params[index].user;
-            $scope.searchValues    = $scope.params[index].searchValues;
-            $scope.searchResults    = $scope.params[index].searchResults;
+            $scope.team    = $scope.params[index].team;
             $scope.myCallback = $scope.params[index].callback;
 
             $scope.index          = index;
@@ -158,14 +114,14 @@ angular.module('demoApp')
          * @type {{title: string, icon: string, haveCodeSource: boolean}}
          */
         $scope.page         = {
-            title : 'Directive TeamdR',
+            title : 'Directive TeamdR Team Profile ',
             haveCodeSource : true,
             code : [{
-                link : 'pages/teamdProfile/code/directive.html',
+                link : 'pages/teamdrTeamProfile/code/directive.html',
                 language : 'html',
                 title : 'Code HTML de la directive TeamdR Profil'
             },{
-                link : 'pages/teamdProfile/code/params.json',
+                link : 'pages/teamdrTeamProfile/code/params.json',
                 language : 'json',
                 title : 'Params available for the directive TeamdR Profile consultation'
             }]

@@ -46,6 +46,16 @@ angular.module('demoApp')
             templateUrl : "pages/teamdResultat/teamdResultatView.html"
         })
 
+        .state('teamdrTeamProfile', {
+            url : '/teamdr/team-profile',
+            controller : 'teamdrTeamProfileCtrl',
+            params: {
+                user: null,
+                team: null
+            },
+            templateUrl : "pages/teamdrTeamProfile/teamdrTeamProfileView.html"
+        })
+
 
     ;
 

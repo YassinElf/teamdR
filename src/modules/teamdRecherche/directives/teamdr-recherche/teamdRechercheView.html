@@ -20,17 +20,18 @@
                 ng-model="searchValues.skills"
                 md-transform-chip="transformChip($chip)"
                 md-require-match="false"
-                readonly="!searchValues.field.name">
+                md-enable-chip-edit="true">
 
                 <md-autocomplete
+                    md-no-cache="true"
                     md-selected-item="selectedComp"
                     md-search-text="searchComp"
                     md-items="item in searchFor(searchComp)"
                     md-item-text="item.name"
                     md-select-on-match="true"
                     md-match-case-insensitive="true"
-                    placeholder="Entrez une compétence"
-                    secondary-placeholder="Entrez d'autres compétences">
+                    ng-disabled="!searchValues.field.name"
+                    placeholder="Entrez une compétence">
                     <span md-highlight-text="searchComp">
                         {{item.name}}
                     </span>
