@@ -55,10 +55,10 @@ angular.module('eklabs.angularStarterPack.user')
                    if(angular.isObject(chip)){
                        return chip;
                    }
-
-                   return { name: chip, type: 'Inconnu' }
+                   var values = chip.split(/:/);
+                   return { name: values[0], type: values[1] }
                };
-               
+
             }
         }
     })

@@ -12,7 +12,7 @@
         <div flex layout="column">
             <span>{{user.name}}</span>
             <span>{{user.birthDate}}</span>
-            <span>{{user.skills}}</span>
+            <span ng-repeat="item in user.skills">{{item.name}}</span>
         </div>
     </div>
 
@@ -41,8 +41,8 @@
 
             <md-datepicker ng-model="userEdit.birthDate" md-placeholder="Enter date"></md-datepicker>
 
-            <md-chips ng-model="userEdit.skills" md-transform-chip="transformChip($chip)" md-require-match="false">
-
+            <md-chips ng-model="userEdit.skills" md-transform-chip="transformChip($chip)" md-require-match="false" placeholder="Nom:Type">
+              <md-chip-template>{{$chip.name}}:{{$chip.type}}</md-chip-template>
             </md-chips>
         </div>
     </div>

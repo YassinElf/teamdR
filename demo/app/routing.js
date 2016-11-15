@@ -34,6 +34,12 @@ angular.module('demoApp')
             templateUrl : "pages/demoUser/demoUserView.html"
         })
 
+        .state('userCreate', {
+            url : '/user-create',
+            controller : 'demoUserCreateCtrl',
+            templateUrl : "pages/demoUserCreate/demoUserCreateView.html"
+        })
+
 
     ;
 

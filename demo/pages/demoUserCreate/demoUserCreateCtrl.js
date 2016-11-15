@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('demoApp')
-    .controller('demoUserCtrl', function($scope,$mdDialog){
+    .controller('demoUserCreateCtrl', function($scope,$mdDialog){
 
 
         // ----------------------------------------------------------------------------------------------------
@@ -75,14 +75,14 @@ angular.module('demoApp')
          * @type {{title: string, icon: string, haveCodeSource: boolean}}
          */
         $scope.page         = {
-            title : 'directive my user',
+            title : 'directive my user create',
             haveCodeSource : true,
             code : [{
-                link : 'pages/demoUser/code/directive.html',
+                link : 'pages/demoUserCreate/code/directive.html',
                 language : 'html',
-                title : 'Code HTML de la directive demo-user'
+                title : 'Code HTML de la directive demo-user create'
             },{
-                link : 'pages/demoUser/code/params.json',
+                link : 'pages/demoUserCreate/code/params.json',
                 language : 'json',
                 title : 'Params available for the directive demo-user'
             }]

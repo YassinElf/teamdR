@@ -8,5 +8,10 @@
   "description" : "Composant permettant de mdifier les user",
   "icon"        : "code",
   "state"       : "user"
+},{
+  "name"        : "User Create",
+  "description" : "Composant permettant de créer un user",
+  "icon"        : "code",
+  "state"       : "userCreate"
 }
 ]
