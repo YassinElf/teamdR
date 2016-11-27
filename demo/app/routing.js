@@ -16,6 +16,7 @@ angular.module('demoApp')
         // ------------------------------------------------------------------------------------------------
         // DEMO EDITOR Component
         // ------------------------------------------------------------------------------------------------
+
         .state('jsonEditor', {
             url : '/json-editor',
             controller : 'demoEditorCtrl',
@@ -43,7 +44,22 @@ angular.module('demoApp')
         .state('teamdResultat', {
             url : '/teamdr/resultats',
             controller : 'teamdResultatCtrl',
+            params: {
+                user: null,
+                skills: null,
+                field: null
+            },
             templateUrl : "pages/teamdResultat/teamdResultatView.html"
+        })
+
+        .state('teamdrTeamProfile', {
+            url : '/teamdr/team-profile',
+            controller : 'teamdrTeamProfileCtrl',
+            params: {
+                user: null,
+                team: null
+            },
+            templateUrl : "pages/teamdrTeamProfile/teamdrTeamProfileView.html"
         })
 
 

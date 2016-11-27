@@ -13,6 +13,9 @@ modelFiles = {
 
         'src/modules/teamdResultat/module.js',
         'src/modules/teamdResultat/{,**/}*.js',
+
+        'src/modules/teamdrTeamProfile/module.js',
+        'src/modules/teamdrTeamProfile/{,**/}*.js',
         
         'src/modules/forms/module.js',
         'src/modules/forms/{,**/}*.js',

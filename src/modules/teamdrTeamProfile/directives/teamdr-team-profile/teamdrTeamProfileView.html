@@ -1,0 +1,39 @@
+<div>
+    <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">{{ team.projName }}</div>
+    </md-toolbar>
+
+    <div style="width: 100%; padding-top: 20px; height: 120px;">
+        <div>
+            <img ng-src="{{team.icon}}" class="md-avatar" style="float: left; width: 80px"/>
+        </div>
+        <div style="height: 100%; display: inline-block; vertical-align: top; padding: 15px 0px 0px 20px;">
+            <span style="display: inline-block">{{ team.desc }}</span>
+            <h3 style="padding-left: 15px;">Membres du projet</h3>
+            <md-list style="">
+                <md-list-item class="md-2-line md-long-text" ng-click="null">
+                    <div class="md-list-item-text" layout="column">
+                        <h2>Leader</h2>
+                        <h3>{{ team.teamLeader.name }} {{ team.teamLeader.lastname }}</h3>
+                        <span>{{ team.teamLeader.birthDate }}</span>
+                        <span> Compétences :
+                            <span ng-repeat-start="skill in team.teamLeader.skills" condition="$middle">{{ skill.name }}, </span>
+                            <span ng-repeat-end condition="$last"> {{skill.name }}</span>
+                        </span>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item class="md-2-line md-long-text" ng-repeat="teamMember in team.users" ng-if="team.users" ng-click="alert('Pas encore géré')">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ teamMember.name }} {{ teamMember.lastname }}</h3>
+                        <span>{{ teamMember.birthDate }}</span>
+                        <span> Compétences :
+                            <span ng-repeat-start="skill in teamMember.skills" condition="$middle">{{ skill.name }}, </span>
+                            <span ng-repeat-end condition="$last"> {{skill.name }}</span>
+                        </span>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </div>
+    </div>
+</div>

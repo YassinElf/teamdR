@@ -4,13 +4,24 @@
             <span>Équipes trouvées</span>
         </div>
     </md-toolbar>
-    <md-list flex ng-if="searchResults.teams">
-        <md-list-item class="md-2-line md-long-text" ng-repeat="item in searchResults.teams" ng-click="null">
-            <img ng-src="{{item.icon}}" class="md-avatar"/>
+    <md-list flex>
+        <md-list-item class="md-2-line md-long-text" ng-repeat="item in searchResults" ng-if="searchResults">
+            <a ui-sref="teamdrTeamProfile({ user: scope.user, team: item})" style="width: 100%; text-decoration: none">
+                <img ng-src="{{item.icon}}" class="md-avatar" style="float: left"/>
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{ item.projName }}</h3>
+                    <p>{{ item.desc }}</p>
+                </div>
+            </a>
+        </md-list-item>
+        <md-list-item ng-if="!searchResults && scope.searchDone">
+            <img ng-src="http://www.iconsdb.com/icons/preview/orange/warning-xxl.png" class="md-avatar" style="margin-left: 40px;"/>
             <div class="md-list-item-text" layout="column">
-                <h3>{{ item.projName }}</h3>
-                <p>{{ item.desc }}</p>
+                <span>Aucun résultat...</span>
             </div>
+        </md-list-item>
+        <md-list-item ng-if="!searchResults && !scope.searchDone">
+            <span us-spinner="{radius:30, width:8, length: 16}" spinner-on="showSpinner"></span>
         </md-list-item>
     </md-list>
 </md-content>

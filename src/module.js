@@ -6,6 +6,7 @@ angular.module('eklabs.angularStarterPack',[
     'eklabs.angularStarterPack.user',
     'eklabs.angularStarterPack.teamdrMain',
     'eklabs.angularStarterPack.teamdRecherche',
-    'eklabs.angularStarterPack.teamdResultat'
+    'eklabs.angularStarterPack.teamdResultat',
+    'eklabs.angularStarterPack.teamdrTeamProfile'
 
 ]);

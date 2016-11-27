@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('demoApp')
-    .controller('teamdResultatCtrl', function($scope,$mdDialog){
+    .controller('teamdResultatCtrl', function($scope,$mdDialog,$stateParams,$state){
 
 
         // ----------------------------------------------------------------------------------------------------
@@ -13,8 +13,9 @@ angular.module('demoApp')
              * Default
              */
             case         : 'Default Case',
-            user         : undefined,
-            searchValues : { field: '', skills: [] },
+            user         : $stateParams.user,
+            field        : $stateParams.field,
+            skills       : $stateParams.skills,
             searchResults: undefined,
             callback     : undefined
         },{
@@ -22,71 +23,7 @@ angular.module('demoApp')
              * Case field informatique with results
              */
             case    : 'Case field informatique',
-            user    : {
-                inTeam: true,
-                name : 'Yassin',
-                lastname : 'El Fahim',
-                birthDate : "1995-12-04",
-                skills: ['Developpeur', 'Manager'],
-                rating: 5
-            },
-            searchValues : {
-                field : { name: "Informatique"},
-                skills: [{ name: 'Developpeur', type: 'Informatique'}]
-            },
-            searchResults : {
-                teams: [{
-                    size: 3,
-                    projName: "TeamdR",
-                    desc: "Besoin d'une équipe pour mener à bien un projet ? Envie de participer à un projet ? TeamdR est fait pour vous",
-                    icon: "https://freeiconshop.com/files/edd/many-people-solid.png",
-                    users: [{
-                        inTeam: true,
-                        name: 'Yassin',
-                        lastname: 'El Fahim',
-                        birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
-                    }, {
-                        inTeam: true,
-                        name: 'Atilla',
-                        lastname: 'Topo',
-                        birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
-                    }, {
-                        inTeam: true,
-                        name: 'Leslie',
-                        lastname: 'Zanon',
-                        birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
-                    }
-                    ],
-                    skillsNeed : [{ name: 'Developpeur', type: 'Informatique' }]
-                }, {
-                    size: 3,
-                    projName: "Tesla France",
-                    desc: "Le futur, c'est Mars.",
-                    icon: "http://cdn.quotesgram.com/small/60/18/2145568946-06-mars-icon.png",
-                    users: [{
-                        inTeam: true,
-                        name: 'Yassin',
-                        lastname: 'El Fahim',
-                        birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
-                    }, {
-                        inTeam: true,
-                        name: 'Atilla',
-                        lastname: 'Topo',
-                        birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
-                    }, {
-                        inTeam: true,
-                        name: 'Leslie',
-                        lastname: 'Zanon',
-                        birthDate: "1995-12-04",
-                        skills: ['Leader', 'Javascript']
-                }],
-                    skillsNeed : [{ name: 'Developpeur', type: 'Informatique' }]
-            }]},
+
             callback : {
                 valid: function () {
 
@@ -97,21 +34,7 @@ angular.module('demoApp')
              * Case field informatique withtout results
              */
             case    : 'Case field informatique',
-            user    : {
-                inTeam: true,
-                name : 'Yassin',
-                lastname : 'El Fahim',
-                birthDate : "1995-12-04",
-                skills: ['Developpeur', 'Manager'],
-                rating: 5
-            },
-            searchValues : {
-                field : { name: "Informatique"},
-                skills: [{ name: 'Developpeur', type: 'Informatique'}]
-            },
-            searchResults : {
-                teams: []
-            },
+
             callback : {
                 valid: function (searchValues) {
 
@@ -122,7 +45,8 @@ angular.module('demoApp')
         $scope.chooseParams = function(index){
             // --- Define current status
             $scope.currentUser    = $scope.params[index].user;
-            $scope.searchValues    = $scope.params[index].searchValues;
+            $scope.field    = $scope.params[index].field;
+            $scope.skills    = $scope.params[index].skills;
             $scope.searchResults    = $scope.params[index].searchResults;
             $scope.myCallback = $scope.params[index].callback;
 

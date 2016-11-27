@@ -1,20 +1,45 @@
 'use strict';
 
 angular.module('eklabs.angularStarterPack.teamdResultat')
-    .directive('teamdResultat',function($log){
+    .directive('teamdResultat',function($log, $state, $http){
         return {
             templateUrl : 'eklabs.angularStarterPack/modules/teamdResultat/directives/teamdr-resultat/teamdResultatView.html',
             scope : {
                 user : '=?',
-                searchValues : '=?',
+                field : '=?',
+                skills : '=?',
                 searchResults : '=?',
                 callback : '=?'
             }, link : function(scope) {
 
-                scope.$watch('searchResults', function(searchResults){
-                    console.log(searchResults);
-                   scope.searchResults = searchResults;
+                scope.searchDone = false;
+                scope.showSpinner = true;
+
+                scope.populateTeamFound = function(){
+                    scope.searchDone = true;
+                    scope.showSpinner = false;
+                    $http({
+                        method: 'GET',
+                        url: 'http://91.134.241.60:3080/resources/teamdr-teams'
+                    }).then(function(response){
+                        scope.searchResults = response.data;
+                        console.log(response);
+                    }, function(response){
+                        alert('Failure');
+                        console.log(response);
+                    });
+                };
+
+                scope.populateTeamFound();
+
+                scope.$watch('field', function(field){
+                   scope.field = field;
                 });
+
+                scope.$watch('skills', function(skills){
+                   scope.skills = skills;
+                });
+
             }
         }
     })

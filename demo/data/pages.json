@@ -27,5 +27,11 @@
   "description" : "Module d'affichage des résultats",
   "icon"        : "people",
   "state"       : "teamdResultat"
+},
+{
+  "name"        : "TeamdR Profil",
+  "description" : "Module d'affichage du profil d'une team",
+  "icon"        : "people",
+  "state"       : "teamdrTeamProfile"
 }
 ]

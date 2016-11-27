@@ -1,4 +1,4 @@
-<form name="teamdRecherche" ng-submit="actions.onValid(searchValues)">
+<form name="teamdRecherche">
     <div display="row">
         <h2 display="column" flex="25" class="md-title"> Domaine</h2>
         <div display="column"flex="50">
@@ -20,17 +20,18 @@
                 ng-model="searchValues.skills"
                 md-transform-chip="transformChip($chip)"
                 md-require-match="false"
-                readonly="!searchValues.field.name">
+                md-enable-chip-edit="true">
 
                 <md-autocomplete
+                    md-no-cache="true"
                     md-selected-item="selectedComp"
                     md-search-text="searchComp"
                     md-items="item in searchFor(searchComp)"
                     md-item-text="item.name"
                     md-select-on-match="true"
                     md-match-case-insensitive="true"
-                    placeholder="Entrez une compétence"
-                    secondary-placeholder="Entrez d'autres compétences">
+                    ng-disabled="!searchValues.field.name"
+                    placeholder="Entrez une compétence">
                     <span md-highlight-text="searchComp">
                         {{item.name}}
                     </span>
@@ -42,7 +43,13 @@
             </md-chips>
         </div>
 
-        <md-button class="md-raised md-primary teamdrecherche-button" type="submit">Recherche</md-button>
+        <md-button class="md-raised md-primary teamdrecherche-button"
+                   type="submit"
+                   ui-sref="teamdResultat({
+                        user: scope.user,
+                        skills: scope.searchValues.skills,
+                        field: scope.searchValues.field })">Recherche
+        </md-button>
     </div>
 
 

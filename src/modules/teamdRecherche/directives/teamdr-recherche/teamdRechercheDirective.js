@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eklabs.angularStarterPack.teamdRecherche')
-    .directive('teamdRecherche',function($log){
+    .directive('teamdRecherche',function($log, $http){
         return {
             templateUrl : 'eklabs.angularStarterPack/modules/teamdRecherche/directives/teamdr-recherche/teamdRechercheView.html',
             scope : {
@@ -29,10 +29,8 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                  */
                 scope.$watch('callback', function(callback) {
                     if(callback instanceof Object) {
-                        console.log('here');
                         scope.actions = angular.extend({},default_actions,callback);
                     } else {
-                        console.log('there');
                         scope.actions = default_actions;
                     }
                 });
@@ -62,9 +60,24 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                 scope.transformChip = function(chip) {
                     if(angular.isObject(chip)){
                         return chip;
+                    } else {
+                        $http({
+                            method: 'POST',
+                            url: 'http://91.134.241.60:3080/resources/teamdr-skills',
+                            headers: {
+                                'Content-Type': 'application/json'},
+                            data: {
+                                name: chip,
+                                type: 'Inconnu'
+                            }
+                        }).then(function(response){
+                            alert('Success');
+                        }, function(response){
+                            alert(response);
+                            console.log(response);
+                        });
+                        return { name: chip, type: 'Inconnu' }
                     }
-
-                    return { name: chip, type: 'Inconnu' }
                 };
 
                 // Search for a skill within the skills array with the input string specified
@@ -73,20 +86,16 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                     var results = scope.skills.filter(function(skill){
                         return skill.name.toLowerCase().indexOf(searchComp.toLowerCase()) !== -1;
                     });
-                    console.log(results);
                     return results;
                 };
 
                 scope.loadSkills = function (){
-
                     var results = allSkills.filter(function(skill){
                         return skill.type === scope.searchValues.field.name;
                     });
-
                     scope.skills = results;
 
                 };
-
 
 
             }
