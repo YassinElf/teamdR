@@ -23,10 +23,8 @@ angular.module('eklabs.angularStarterPack.teamdResultat')
                         url: 'http://91.134.241.60:3080/resources/teamdr-teams'
                     }).then(function(response){
                         scope.searchResults = response.data;
-                        console.log(response);
                     }, function(response){
-                        alert('Failure');
-                        console.log(response);
+                        alert('Failure' + response);
                     });
                 };
 

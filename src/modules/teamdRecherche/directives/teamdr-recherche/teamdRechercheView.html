@@ -1,56 +1,67 @@
-<form name="teamdRecherche">
-    <div display="row">
-        <h2 display="column" flex="25" class="md-title"> Domaine</h2>
-        <div display="column"flex="50">
-            <md-input-container>
-                <label>Domaine</label>
-                <md-select
-                        ng-model="searchValues.field"
-                        required
-                        ng-change="loadSkills()">
-                    <md-option style="display: none" ng-value="">Invisible debug</md-option>
-                    <md-option ng-value="field" ng-repeat="field in fields"> {{ field.name }}</md-option>
-                </md-select>
-            </md-input-container>
-        </div>
+<md-toolbar>
 
-        <h2 display="column"flex="25" class="md-title"> Compétences</h2>
-        <div display="column"flex="50">
-            <md-chips
-                ng-model="searchValues.skills"
-                md-transform-chip="transformChip($chip)"
-                md-require-match="false"
-                md-enable-chip-edit="true">
-
-                <md-autocomplete
-                    md-no-cache="true"
-                    md-selected-item="selectedComp"
-                    md-search-text="searchComp"
-                    md-items="item in searchFor(searchComp)"
-                    md-item-text="item.name"
-                    md-select-on-match="true"
-                    md-match-case-insensitive="true"
-                    ng-disabled="!searchValues.field.name"
-                    placeholder="Entrez une compétence">
-                    <span md-highlight-text="searchComp">
-                        {{item.name}}
-                    </span>
-                </md-autocomplete>
-
-            <md-chip-template>
-                <span>{{$chip.name}}</span>
-            </md-chip-template>
-            </md-chips>
-        </div>
-
-        <md-button class="md-raised md-primary teamdrecherche-button"
-                   type="submit"
-                   ui-sref="teamdResultat({
-                        user: scope.user,
-                        skills: scope.searchValues.skills,
-                        field: scope.searchValues.field })">Recherche
-        </md-button>
+    <div class="md-toolbar-tools">
+        <span>Formulaire de recherche</span>
     </div>
 
+</md-toolbar>
+<md-content>
+    <div>
+        <form style="padding-left: 10px;" name="teamdRecherche">
+            <div display="row">
+                <h2 display="column" flex="25" class="md-title left-margin-recherche"> Domaine</h2>
+                <div style="padding-bottom: 15px;" display="column"flex="50" class="left-margin-recherche">
+                    <md-input-container>
+                        <label>Domaine</label>
+                        <md-select
+                                ng-model="searchValues.field"
+                                required
+                                ng-change="loadSkills()"
+                                ng-value="''">
+                            <md-option style="display: none" ng-value="">Invisible debug</md-option>
+                            <md-option ng-value="field" ng-repeat="field in fields"> {{ field.name }}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
 
-</form>
+                <h2 display="column"flex="25" class="md-title left-margin-recherche"> Compétences</h2>
+                <div style="padding-bottom: 15px;" display="column"flex="50" class="left-margin-recherche">
+                    <md-chips
+                        ng-model="searchValues.skills"
+                        md-transform-chip="transformChip($chip)"
+                        md-require-match="false"
+                        md-enable-chip-edit="true">
+
+                        <md-autocomplete
+                            md-no-cache="true"
+                            md-selected-item="selectedComp"
+                            md-search-text="searchComp"
+                            md-items="item in searchFor(searchComp)"
+                            md-item-text="item.name"
+                            md-select-on-match="true"
+                            md-match-case-insensitive="true"
+                            ng-disabled="!searchValues.field.name"
+                            placeholder="Entrez une compétence">
+                            <span md-highlight-text="searchComp">
+                                {{item.name}}
+                            </span>
+                        </md-autocomplete>
+
+                    <md-chip-template>
+                        <span>{{$chip.name}}</span>
+                    </md-chip-template>
+                    </md-chips>
+                </div>
+
+                <md-button class="md-raised md-primary teamdrecherche-button"
+                           type="submit"
+                           style="margin-bottom: 15px;"
+                           ui-sref="teamdResultat({
+                                user: scope.user,
+                                skills: scope.searchValues.skills,
+                                field: scope.searchValues.field })">Recherche
+                </md-button>
+            </div>
+        </form>
+    </div>
+</md-content>

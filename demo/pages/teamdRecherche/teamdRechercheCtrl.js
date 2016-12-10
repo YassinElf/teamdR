@@ -97,7 +97,7 @@ angular.module('demoApp')
          * MODE Fullscreen
          */
         $scope.fullScreenMode = true;
-        $scope.hideParams     = false;
+        $scope.hideParams     = true;
         $scope.fullScreen = function(){
             $scope.hideParams = !$scope.hideParams;
         };

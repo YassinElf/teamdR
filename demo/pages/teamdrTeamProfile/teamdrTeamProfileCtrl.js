@@ -3,7 +3,6 @@
 angular.module('demoApp')
     .controller('teamdrTeamProfileCtrl', function($scope,$mdDialog,$stateParams,$state){
 
-        console.log($stateParams.team);
         // ----------------------------------------------------------------------------------------------------
         // ---- PARAMS CATALOGUE
         // ----------------------------------------------------------------------------------------------------
@@ -131,7 +130,7 @@ angular.module('demoApp')
          * MODE Fullscreen
          */
         $scope.fullScreenMode = true;
-        $scope.hideParams     = false;
+        $scope.hideParams     = true;
         $scope.fullScreen = function(){
             $scope.hideParams = !$scope.hideParams;
         };

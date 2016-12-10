@@ -39,7 +39,8 @@
   },
   "dependencies": {
     "angular-moment": "^1.0.0",
-    "moment": "^2.15.1",
-    "karma": "^0.13.0"
+    "classnames": "^2.2.5",
+    "karma": "^0.13.0",
+    "moment": "^2.15.1"
   }
 }

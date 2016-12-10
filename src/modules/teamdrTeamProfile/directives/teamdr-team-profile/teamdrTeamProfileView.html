@@ -1,39 +1,56 @@
 <div>
     <md-toolbar md-scroll-shrink>
-        <div class="md-toolbar-tools">{{ team.projName }}</div>
+        <div class="md-toolbar-tools">{{ team.name }}</div>
     </md-toolbar>
 
     <div style="width: 100%; padding-top: 20px; height: 120px;">
         <div>
-            <img ng-src="{{team.icon}}" class="md-avatar" style="float: left; width: 80px"/>
+            <img ng-src="{{team.icon}}" class="md-avatar" style="float: left; width: 80px; padding-left: 15px;"/>
         </div>
-        <div style="height: 100%; display: inline-block; vertical-align: top; padding: 15px 0px 0px 20px;">
-            <span style="display: inline-block">{{ team.desc }}</span>
-            <h3 style="padding-left: 15px;">Membres du projet</h3>
+        <div style="height: 100%; height: 100%; vertical-align: top; padding: 15px 0px 0px 20px;">
+            <span style="padding-left: 50px;">{{ team.desc }}</span>
+            <h3 style="margin-left: 40%; padding-top: 50px;">Membres du projet</h3>
             <md-list style="">
-                <md-list-item class="md-2-line md-long-text" ng-click="null">
+                <md-list-item class="md-2-line md-long-text" ng-click="null" style="cursor: default;">
                     <div class="md-list-item-text" layout="column">
-                        <h2>Leader</h2>
-                        <h3>{{ team.teamLeader.name }} {{ team.teamLeader.lastname }}</h3>
-                        <span>{{ team.teamLeader.birthDate }}</span>
+                        <h2 class="md-title">Leader</h2>
+                        <h3>{{ team.projLeader.name }} {{ team.projLeader.lastname }}</h3>
+                        <span>Né le {{ team.projLeader.birthDate }}</span>
                         <span> Compétences :
-                            <span ng-repeat-start="skill in team.teamLeader.skills" condition="$middle">{{ skill.name }}, </span>
-                            <span ng-repeat-end condition="$last"> {{skill.name }}</span>
+                            <span ng-repeat="skill in team.projLeader.skills">{{ skill.name }} </span>
                         </span>
                     </div>
                 </md-list-item>
                 <md-divider></md-divider>
+                <h2 class="md-title" style="padding-left: 11px;">Membres</h2>
                 <md-list-item class="md-2-line md-long-text" ng-repeat="teamMember in team.users" ng-if="team.users" ng-click="alert('Pas encore géré')">
                     <div class="md-list-item-text" layout="column">
                         <h3>{{ teamMember.name }} {{ teamMember.lastname }}</h3>
-                        <span>{{ teamMember.birthDate }}</span>
+                        <span>Né le {{ teamMember.birthDate }}</span>
                         <span> Compétences :
-                            <span ng-repeat-start="skill in teamMember.skills" condition="$middle">{{ skill.name }}, </span>
-                            <span ng-repeat-end condition="$last"> {{skill.name }}</span>
+                            <span ng-repeat="skill in teamMember.skills">{{ skill.name }} </span>
+                            <!--<span ng-repeat-end condition="$last"> {{skill.name }}</span>-->
                         </span>
                     </div>
                 </md-list-item>
             </md-list>
         </div>
     </div>
+
+    <!--<md-button class="md-raised md-warn teamdrecherche-button"
+               type="submit"
+               style="margin-bottom: 15px;"
+               ui-sref="teamdResultat({
+                                user: scope.user,
+                                skills: scope.searchValues.skills,
+                                field: scope.searchValues.field })">Retour
+    </md-button>
+    <md-button class="md-raised md-primary teamdrecherche-button"
+               type="submit"
+               style="margin-bottom: 15px;"
+               ui-sref="teamdResultat({
+                                user: scope.user,
+                                skills: scope.searchValues.skills,
+                                field: scope.searchValues.field })">Rejoindre
+    </md-button>-->
 </div>

@@ -65,16 +65,16 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                             method: 'POST',
                             url: 'http://91.134.241.60:3080/resources/teamdr-skills',
                             headers: {
-                                'Content-Type': 'application/json'},
+                                'Content-Type': 'application/json'
+                            },
                             data: {
                                 name: chip,
                                 type: 'Inconnu'
                             }
                         }).then(function(response){
-                            alert('Success');
+                            console.log('Successfully created '+ chip + ' chip');
                         }, function(response){
-                            alert(response);
-                            console.log(response);
+                            console.log('Error for chip' + chip + ' with response : ' + response);
                         });
                         return { name: chip, type: 'Inconnu' }
                     }

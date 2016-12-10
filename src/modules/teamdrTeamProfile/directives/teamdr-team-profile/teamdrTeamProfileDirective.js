@@ -12,11 +12,16 @@ angular.module('eklabs.angularStarterPack.teamdrTeamProfile')
 
                 scope.$watch('team', function(team){
                     scope.team = team;
+                    scope.team.projLeader.birthDate = moment(scope.team.projLeader.birthDate, 'MM-DD-YYYY').format('DD MMMM YYYY');
+                    scope.team.users.map(function(user){
+                       user.birthDate =  moment(user.birthDate, 'MM-DD-YYYY').format('DD MMMM  YYYY')
+                    });
                 });
 
                 scope.$watch('currentUser', function(currentUser){
                     scope.user = currentUser;
                 });
+
 
 
             }

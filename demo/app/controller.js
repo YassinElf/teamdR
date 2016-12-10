@@ -34,5 +34,8 @@ angular.module('demoApp')
             $state.transitionTo(state);
         };
 
+        moment.locale('en', {
+            months : ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+        });
     });
     
