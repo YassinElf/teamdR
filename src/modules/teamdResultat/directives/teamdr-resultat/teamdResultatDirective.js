@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eklabs.angularStarterPack.teamdResultat')
-    .directive('teamdResultat',function($log, $state, $http){
+    .directive('teamdResultat',function($log, $state, $http, Team){
         return {
             templateUrl : 'eklabs.angularStarterPack/modules/teamdResultat/directives/teamdr-resultat/teamdResultatView.html',
             scope : {
@@ -15,16 +15,15 @@ angular.module('eklabs.angularStarterPack.teamdResultat')
                 scope.searchDone = false;
                 scope.showSpinner = true;
 
+
                 scope.populateTeamFound = function(){
                     scope.searchDone = true;
                     scope.showSpinner = false;
-                    $http({
-                        method: 'GET',
-                        url: 'http://91.134.241.60:3080/resources/teamdr-teams'
-                    }).then(function(response){
-                        scope.searchResults = response.data;
-                    }, function(response){
-                        alert('Failure' + response);
+                    scope.searchResults = new Team();
+                    scope.searchResults.fetch().then(function(response){
+                        scope.showSpinner = false;
+                    }, function(error){
+                        console.log(error);
                     });
                 };
 

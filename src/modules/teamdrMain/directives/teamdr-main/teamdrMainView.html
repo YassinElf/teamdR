@@ -1,0 +1,81 @@
+<div layout="column" ng-cloak style="height: 100%;">
+
+    <section layout="row" flex>
+
+        <md-sidenav
+                class="md-sidenav-left"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-md')"
+                md-whiteframe="4">
+
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools" ng-if="user.firstname && user.lastname">{{ user.firstname }} {{ user.lastname }}</h1>
+            </md-toolbar>
+            <md-content layout-padding style="height: 100%; padding: 8px 0px;" flex>
+                <md-list style="padding: 8px 0px;">
+                    <md-list-item ng-repeat="item in menu" ng-click="null" style="padding-top: 10px;">
+                    <div><md-icon md-svg-src="material-design:{{item.icon}}"/></div>
+                    <span style="padding-left: 10px;">{{ item.title }}</span>
+                    </md-list-item>
+                </md-list>
+                <div style="position: absolute; bottom: 0px; width: 100%; left: 0px; padding: 0px;">
+                    <md-divider/>
+                    <div>
+                        <md-button style="margin: 0px 0px; width: 100%; padding: 6px 0px;">
+                            Déconnexion
+                        </md-button>
+                    </div>
+                </div>
+            </md-content>
+
+        </md-sidenav>
+
+        <md-content flex>
+
+            <div layout="column" layout-align="top center" style="height: 100%;">
+                <md-toolbar class="md-theme-indigo">
+                    <md-tabs md-stretch-tabs="always" class="md-primary" md-selected="data.selectedIndex" md-border-bottom md-autoselect>
+                        <md-tab id="tab1" aria-controls="tab1-content">
+                            Dashboard
+                        </md-tab>
+                        <md-tab id="tab2" aria-controls="tab2-content">
+                            Recherche
+                        </md-tab>
+                </md-toolbar>
+                <md-content flex md-scroll-y style="width: 100%;">
+                    <ng-switch on="data.selectedIndex" class="tabpanel-container">
+                        <div role="tabpanel"
+                             id="tab1-content"
+                             aria-labelledby="tab1"
+                             ng-switch-when="0"
+                             layout="row" layout-align="center center">
+                            <md-card flex-gt-sm="90" flex-gt-md="80">
+                                <div ui-view="teamdRecherche">
+
+                                </div>
+                            </md-card>
+                        </div>
+                        <div role="tabpanel"
+                             id="tab2-content"
+                             aria-labelledby="tab2"
+                             ng-switch-when="1"
+                             md-swipe-left="next()"
+                             md-swipe-right="previous()"
+                             layout="row" layout-align="center center">
+                            <md-card flex-gt-sm="90" flex-gt-md="80">
+                                <div ng-include="'pages/teamdRecherche/code/directive.html'" style="width: 100%"></div>
+                            </md-card>
+                        </div>
+
+                    </ng-switch>
+                </md-content>
+
+            </div>
+
+            <div flex></div>
+
+        </md-content>
+
+    </section>
+
+</div>

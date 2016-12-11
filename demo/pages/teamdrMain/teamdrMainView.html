@@ -11,9 +11,9 @@
                 TeamdR Render
             </h2>
 
-            <md-card style="padding:10px;overflow: auto" ng-style="{'max-height':maxHeight,'min-height':maxHeight}" layout="column" layout-align="start start" class="page_settings">
+            <md-card style="overflow: auto; position: relative;" ng-style="{'max-height':maxHeight,'min-height':maxHeight}" layout="column" layout-align="start start" class="page_settings center-window">
 
-                <div ng-include="'pages/teamdrMain/code/directive.html'" style="width: 100%"></div>
+                <div ng-include="'pages/teamdrMain/code/directive.html'" style="width: 100%; height: 100%; position: absolute;" flex-grow></div>
 
             </md-card>
 

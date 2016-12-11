@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eklabs.angularStarterPack.teamdRecherche')
-    .directive('teamdRecherche',function($log, $http){
+    .directive('teamdRecherche',function($log, Skill, Skills){
         return {
             templateUrl : 'eklabs.angularStarterPack/modules/teamdRecherche/directives/teamdr-recherche/teamdRechercheView.html',
             scope : {
@@ -38,16 +38,21 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                 scope.selectedComp = null;
                 scope.searchComp = null;
                 scope.skills = null;
-                var allSkills = [
-                    {
-                        'name': 'Developpeur',
-                        'type': 'Informatique'
-                    },
-                    {
-                        'name': 'Manager',
-                        'type': 'Informatique'
-                    }
-                ];
+
+                /**
+                 * Get skills
+                 * @type Skills
+                 */
+                var allSkills = new Skills();
+                var loadSkills = function(){
+                    allSkills.fetch().then(function(){
+                        console.log(allSkills);
+                    }, function(error){
+                        console.log(error);
+                    });
+                };
+                loadSkills();
+
                 scope.fields = [
                     {
                         'name': 'Informatique'
@@ -61,21 +66,9 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                     if(angular.isObject(chip)){
                         return chip;
                     } else {
-                        $http({
-                            method: 'POST',
-                            url: 'http://91.134.241.60:3080/resources/teamdr-skills',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            data: {
-                                name: chip,
-                                type: 'Inconnu'
-                            }
-                        }).then(function(response){
-                            console.log('Successfully created '+ chip + ' chip');
-                        }, function(response){
-                            console.log('Error for chip' + chip + ' with response : ' + response);
-                        });
+                        console.log('else');
+                        var chip = new Skill({ name: chip, type: 'Inconnu' });
+                        chip.create();
                         return { name: chip, type: 'Inconnu' }
                     }
                 };
@@ -90,11 +83,11 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                 };
 
                 scope.loadSkills = function (){
-                    var results = allSkills.filter(function(skill){
+                    var results = allSkills.items.filter(function(skill){
                         return skill.type === scope.searchValues.field.name;
                     });
                     scope.skills = results;
-
+                    console.log(scope.skills);
                 };
 
 

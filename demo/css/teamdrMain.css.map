@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,sBAAsB;EACpB,UAAU,EAAE,IAAI;EAChB,IAAI,EAAE,GAAG;;AAGX,cAAc;EACZ,WAAW,EAAE,KAAK;EAClB,YAAY,EAAE,KAAK;;AAIrB,sBAAsB;EACpB,WAAW,EAAE,GAAG",
+"sources": ["teamdrMain.scss"],
+"names": [],
+"file": "teamdrMain.css"
+}
