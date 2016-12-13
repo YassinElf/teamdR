@@ -11,7 +11,7 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
             }, link : function(scope) {
 
                 scope.$watch('searchValues', function(searchValues){
-                    scope.searchValues = searchValues;
+                    scope.searchValues = searchValues || {fields : [], skills : []};
                 });
 
                 /**
