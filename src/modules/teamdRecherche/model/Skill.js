@@ -15,7 +15,7 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
             if(data){
                 this.name       = data.name;
                 this.id         = data.id;
-                this.type      = data.type;
+                this.type       = data.type;
             }
         };
 

@@ -6,11 +6,12 @@ angular.module('eklabs.angularStarterPack.teamdrTeamProfile')
             templateUrl : 'eklabs.angularStarterPack/modules/teamdrTeamProfile/directives/teamdr-team-profile/teamdrTeamProfileView.html',
             scope : {
                 currentUser : '=?',
-                team : '=?',
-                callback : '=?'
+                team        : '=?',
+                callback    : '=?'
             }, link : function(scope) {
 
                 scope.$watch('team', function(team){
+                    console.log(team);
                     scope.team = team;
                     scope.team.projLeader.birthDate = moment(scope.team.projLeader.birthDate, 'MM-DD-YYYY').format('DD MMMM YYYY');
                     scope.team.users.map(function(user){

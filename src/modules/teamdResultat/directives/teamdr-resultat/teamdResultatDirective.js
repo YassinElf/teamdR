@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('eklabs.angularStarterPack.teamdResultat')
-    .directive('teamdResultat',function($log, $state, $http, Team){
+    .directive('teamdResultat',function($log, $state, $http, Team, Teams){
         return {
             templateUrl : 'eklabs.angularStarterPack/modules/teamdResultat/directives/teamdr-resultat/teamdResultatView.html',
             scope : {
-                user : '=?',
-                field : '=?',
-                skills : '=?',
+                user          : '=?',
+                field         : '=?',
+                skills        : '=?',
                 searchResults : '=?',
-                callback : '=?'
+                callback      : '=?'
             }, link : function(scope) {
 
                 scope.searchDone = false;
@@ -17,11 +17,11 @@ angular.module('eklabs.angularStarterPack.teamdResultat')
 
 
                 scope.populateTeamFound = function(){
-                    scope.searchDone = true;
-                    scope.showSpinner = false;
-                    scope.searchResults = new Team();
-                    scope.searchResults.fetch().then(function(response){
-                        scope.showSpinner = false;
+                    var teams = new Teams();
+                    teams.fetch().then(function(){
+                        scope.searchResults = teams.items;
+                        scope.searchDone    = true;
+                        scope.showSpinner   = false;
                     }, function(error){
                         console.log(error);
                     });

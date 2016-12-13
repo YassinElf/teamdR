@@ -5,9 +5,9 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
         return {
             templateUrl : 'eklabs.angularStarterPack/modules/teamdRecherche/directives/teamdr-recherche/teamdRechercheView.html',
             scope : {
-                user : '=?',
-                searchValues : '=?',
-                callback : '=?'
+                user            : '=?',
+                searchValues    : '=?',
+                callback        : '=?'
             }, link : function(scope) {
 
                 scope.$watch('searchValues', function(searchValues){
@@ -37,7 +37,7 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
 
                 scope.selectedComp = null;
                 scope.searchComp = null;
-                scope.skills = null;
+                scope.skills = [];
 
                 /**
                  * Get skills
@@ -46,7 +46,6 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                 var allSkills = new Skills();
                 var loadSkills = function(){
                     allSkills.fetch().then(function(){
-                        console.log(allSkills);
                     }, function(error){
                         console.log(error);
                     });
@@ -64,11 +63,9 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
 
                 scope.transformChip = function(chip) {
                     if(angular.isObject(chip)){
+                        console.log(chip);
                         return chip;
                     } else {
-                        console.log('else');
-                        var chip = new Skill({ name: chip, type: 'Inconnu' });
-                        chip.create();
                         return { name: chip, type: 'Inconnu' }
                     }
                 };
@@ -82,12 +79,13 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                     return results;
                 };
 
-                scope.loadSkills = function (){
+                scope.loadRightSkills = function (){
                     var results = allSkills.items.filter(function(skill){
                         return skill.type === scope.searchValues.field.name;
                     });
-                    scope.skills = results;
-                    console.log(scope.skills);
+                    results.map(function(item){
+                        scope.skills.push({ name: item.name, type: item.type });
+                    });
                 };
 
 

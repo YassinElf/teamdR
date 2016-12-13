@@ -6,8 +6,8 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
         var uri = $config.get('api')+'/teamdr-skills/';
 
         var Skills  = function (data){
-            this.ids = [];
-            this.items = [];
+            this.ids    = [];
+            this.items  = [];
 
             if(data){
                 this.addItems(data);
