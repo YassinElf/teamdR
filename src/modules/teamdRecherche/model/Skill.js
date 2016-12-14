@@ -12,10 +12,14 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
          * Copyright Laurent Breda
          */
         var Skill  = function (data){
-            if(data){
+            if(Object.keys(data).length == 3){
                 this.name       = data.name;
                 this.id         = data.id;
                 this.type       = data.type;
+            } else if(Object.keys(data).length == 2){
+                this.name       = data.name;
+                this.type       = data.type;
+                this.id         = null;
             }
         };
 

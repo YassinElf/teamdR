@@ -63,7 +63,15 @@
                             <md-card flex-gt-sm="90" flex-gt-md="80">
                                 <teamd-recherche
                                         user = "user"
-                                        search-values = "searchValues"></teamd-recherche>
+                                        search-values = "searchValues"
+                                        ng-if="searchMode"></teamd-recherche>
+                                <teamd-resultat
+                                        user = "user"
+                                        field = "field"
+                                        skills = "skills"
+                                        search-results = "searchResults"
+                                        callback = "myCallback"
+                                        ng-if="!searchMode"></teamd-resultat>
 
                             </md-card>
                         </div>

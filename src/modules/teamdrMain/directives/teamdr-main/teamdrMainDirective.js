@@ -3,6 +3,7 @@
 angular.module('eklabs.angularStarterPack.teamdrMain')
     .directive('teamdrMain',function($log, User){
         return {
+            //restrict: 'E',
             templateUrl : 'eklabs.angularStarterPack/modules/teamdrMain/directives/teamdr-main/teamdrMainView.html',
             scope : {
                 user : '=?',
@@ -11,6 +12,7 @@ angular.module('eklabs.angularStarterPack.teamdrMain')
             }, link : function(scope){
 
                 scope.user = new User();
+                scope.searchMode = true;
 
                 var loadUser = function(id){
                     scope.user.get(id).then(function(response){

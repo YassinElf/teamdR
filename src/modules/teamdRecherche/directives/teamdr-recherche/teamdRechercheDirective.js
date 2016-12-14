@@ -3,6 +3,7 @@
 angular.module('eklabs.angularStarterPack.teamdRecherche')
     .directive('teamdRecherche',function($log, Skill, Skills){
         return {
+            //require: '^teamdrMain',
             templateUrl : 'eklabs.angularStarterPack/modules/teamdRecherche/directives/teamdr-recherche/teamdRechercheView.html',
             scope : {
                 user            : '=?',
@@ -11,7 +12,7 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
             }, link : function(scope) {
 
                 scope.$watch('searchValues', function(searchValues){
-                    scope.searchValues = searchValues;
+                    scope.searchValues = searchValues || {fields : [], skills : []};
                 });
 
                 /**
@@ -63,10 +64,17 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
 
                 scope.transformChip = function(chip) {
                     if(angular.isObject(chip)){
-                        console.log(chip);
                         return chip;
                     } else {
-                        return { name: chip, type: 'Inconnu' }
+                        var newSkill = new Skill({ name: chip, type: scope.searchValues.field.name });
+                        newSkill.create().then(function(){
+                            console.log('Success');
+                        },function(error){
+                            console.log('Error');
+                            console.log(error);
+                        });
+                        Skill.create();
+                        return { name: chip, type: scope.searchValues.field.name };
                     }
                 };
 
