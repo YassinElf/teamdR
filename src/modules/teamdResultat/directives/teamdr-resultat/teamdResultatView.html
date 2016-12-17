@@ -6,7 +6,7 @@
     </md-toolbar>
     <md-list flex>
         <md-list-item class="md-2-line md-long-text" ng-repeat="item in searchResults" ng-if="!showSpinner && searchResults && searchDone">
-            <a ui-sref="teamdrTeamProfile({ user: scope.user, team: item})" style="width: 100%; text-decoration: none">
+            <a ng-click="sendTeamProfile(item)" style="width: 100%; text-decoration: none">
                 <img ng-src="{{item.icon}}" class="md-avatar" style="float: left"/>
                 <div class="md-list-item-text" layout="column">
                     <h3>{{ item.name }}</h3>

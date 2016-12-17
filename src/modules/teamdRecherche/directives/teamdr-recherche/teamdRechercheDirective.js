@@ -96,6 +96,9 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                     });
                 };
 
+                scope.emitSearch = function(){
+                  scope.$emit('searchDone', { searchValues: scope.searchValues });
+                };
 
             }
         }

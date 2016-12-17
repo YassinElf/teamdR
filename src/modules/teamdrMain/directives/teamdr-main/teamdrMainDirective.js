@@ -13,7 +13,10 @@ angular.module('eklabs.angularStarterPack.teamdrMain')
 
                 scope.user = new User();
                 scope.searchMode = true;
+                scope.resultsMode = false;
+                scope.searchValues;
 
+                // Load current user data
                 var loadUser = function(id){
                     scope.user.get(id).then(function(response){
                         scope.user = response;
@@ -23,6 +26,15 @@ angular.module('eklabs.angularStarterPack.teamdrMain')
                 };
 
                 loadUser('584c5e8fc4569917c0c47e32');
+
+                // Get form data from teamdRecherche to parent directive
+                // Set the mode from searchMode to resultsMode
+                scope.$on('searchDone', function(event, data){
+                    scope.searchMode = false;
+                    scope.resultsMode = true;
+                    scope.searchValues = data.searchValues;
+                });
+
 
                 scope.menu = [
                     {

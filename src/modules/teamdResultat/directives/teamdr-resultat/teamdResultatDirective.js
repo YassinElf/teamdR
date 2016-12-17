@@ -25,20 +25,21 @@ angular.module('eklabs.angularStarterPack.teamdResultat')
 
                 scope.populateTeamFound = function(){
                     var teams = new Teams();
-                    console.log(scope.skills);
                     teams.fetch().then(function(){
                         scope.searchResults = [];
                         // Fonction compliquée car librairie underscore.js ne veut pas se lancer
                         teams.items.map(function(team){
                             team.skillsNeed.map(function(teamSkill){
+                                console.log(teamSkill);
                                 scope.skills.map(function(skill){
-                                    if(teamSkill == skill){
+                                    console.log(skill);
+                                    if(teamSkill.field == skill.type && teamSkill.name == skill.name){
+                                        console.log('here');
                                         scope.searchResults.push(team);
                                     }
                                 });
                             });
                         });
-                        console.log(scope.searchResults);
                         scope.searchDone    = true;
                         scope.showSpinner   = false;
                     }, function(error){
@@ -47,6 +48,11 @@ angular.module('eklabs.angularStarterPack.teamdResultat')
                 };
 
                 scope.populateTeamFound();
+
+                scope.sendTeamProfile = function(team){
+
+
+                };
 
             }
         }

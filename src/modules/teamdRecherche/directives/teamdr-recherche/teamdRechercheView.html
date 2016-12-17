@@ -54,10 +54,7 @@
                 <md-button class="md-raised md-primary teamdrecherche-button"
                            type="submit"
                            style="margin-bottom: 15px;"
-                           ui-sref="teamdResultat({
-                                user: scope.user,
-                                skills: scope.searchValues.skills,
-                                field: scope.searchValues.field })">Recherche
+                           ng-click="emitSearch()">Recherche
                 </md-button>
             </div>
         </form>

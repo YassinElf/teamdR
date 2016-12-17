@@ -67,11 +67,10 @@
                                         ng-if="searchMode"></teamd-recherche>
                                 <teamd-resultat
                                         user = "user"
-                                        field = "field"
-                                        skills = "skills"
+                                        field = "searchValues.field"
+                                        skills = "searchValues.skills"
                                         search-results = "searchResults"
-                                        callback = "myCallback"
-                                        ng-if="!searchMode"></teamd-resultat>
+                                        ng-if="resultsMode"></teamd-resultat>
 
                             </md-card>
                         </div>

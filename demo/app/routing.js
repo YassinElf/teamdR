@@ -35,14 +35,14 @@ angular.module('demoApp')
             templateUrl : "pages/teamdrMain/teamdrMainView.html"
         })
 
-        .state('teamdRecherche', {
+        .state('teamdr.teamdRecherche', {
             //parent: 'teamdr',
             url : '/recherche',
             controller : 'teamdRechercheCtrl',
             templateUrl : "pages/teamdRecherche/teamdRechercheView.html"
         })
 
-        .state('teamdResultat', {
+        .state('teamdr.teamdResultat', {
             //parent: 'teamdr',
             url : '/resultats',
             controller : 'teamdResultatCtrl',
@@ -54,7 +54,7 @@ angular.module('demoApp')
             templateUrl : "pages/teamdResultat/teamdResultatView.html"
         })
 
-        .state('teamdrTeamProfile', {
+        .state('teamdr.teamdrTeamProfile', {
            // parent: 'teamdr',
             url : '/team-profile',
             controller : 'teamdrTeamProfileCtrl',
