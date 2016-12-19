@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     require('grunt-angular-templates')(grunt);
     grunt.loadNpmTasks('grunt-angular-templates');
     grunt.loadNpmTasks('grunt-karma');
-
+    grunt.loadNpmTasks('grunt-contrib-karma');
     var files   = require('./files').files;
 
 
@@ -192,6 +192,12 @@ module.exports = function (grunt) {
                     dest : '<%= builddir %>',
                     ext : '.min.css'
                 }]
+            }
+        },
+
+        karma : {
+            unit: {
+                configFile: 'test/my.conf.js'
             }
         }
     });
