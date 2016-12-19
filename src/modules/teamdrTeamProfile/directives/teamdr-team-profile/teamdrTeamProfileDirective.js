@@ -25,6 +25,16 @@ angular.module('eklabs.angularStarterPack.teamdrTeamProfile')
 
 
 
+                scope.returnToResults = function(){
+                  scope.$emit('returnToResults');
+                };
+
+                // Non géré encore
+                scope.sendInvitation = function(){
+                    alert('Invitation envoyée !');
+                    location.reload();
+                };
+
             }
         }
     })

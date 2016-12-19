@@ -51,6 +51,7 @@ angular.module('eklabs.angularStarterPack.teamdResultat')
 
                 scope.sendTeamProfile = function(team){
 
+                    scope.$emit('teamProfileResult', team);
 
                 };
 

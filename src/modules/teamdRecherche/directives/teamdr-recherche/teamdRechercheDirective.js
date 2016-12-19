@@ -15,27 +15,6 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                     scope.searchValues = searchValues || {fields : [], skills : []};
                 });
 
-                /**
-                 * Default Actions
-                 * @type {{onValid: default_actions.onValid}}
-                 */
-                var default_actions = {
-                    onValid : function(searchValues){
-                        $log.info('My search values are : ', searchValues)
-                    }
-                };
-
-                /**
-                 * Catch Callback
-                 */
-                scope.$watch('callback', function(callback) {
-                    if(callback instanceof Object) {
-                        scope.actions = angular.extend({},default_actions,callback);
-                    } else {
-                        scope.actions = default_actions;
-                    }
-                });
-
                 scope.selectedComp = null;
                 scope.searchComp = null;
                 scope.skills = [];
@@ -97,6 +76,7 @@ angular.module('eklabs.angularStarterPack.teamdRecherche')
                 };
 
                 scope.emitSearch = function(){
+                    console.log('emitSearch');
                   scope.$emit('searchDone', { searchValues: scope.searchValues });
                 };
 
